@@ -335,3 +335,7 @@ Thumbs.db
 
 # virtualenv
 venv/
+build/
+dist/
+*.spec
+*.db

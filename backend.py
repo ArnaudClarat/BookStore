@@ -3,7 +3,12 @@ import sqlite3
 def connect():
     conn = sqlite3.connect("bookstore.db")
     cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title TEXT, author TEXT, year INTEGER, isbn INTEGER")
+    cur.execute("""CREATE TABLE IF NOT EXISTS book 
+    (id INTEGER PRIMARY KEY, 
+    title TEXT, 
+    author TEXT, 
+    year INTEGER, 
+    isbn INTEGER)""")
     conn.commit()
     conn.close()
 
@@ -39,7 +44,7 @@ def view_one(id):
 def update(id, title, author, year, isbn):
     conn = sqlite3.connect("bookstore.db")
     cur = conn.cursor()
-    cur.execute("UPDATE book SET title = ?, SET author = ?, SET year = ?, SET isbn = ? WHERE id = ?", (title, author, year, isbn, id))
+    cur.execute("UPDATE book SET title = ?, author = ?, year = ?, isbn = ? WHERE id = ?", (title, author, year, isbn, id))
     conn.commit()
     conn.close()
 
@@ -49,3 +54,5 @@ def delete(id):
     cur.execute("DELETE FROM book WHERE id = ?", (id,))
     conn.commit()
     conn.close()
+
+connect()
