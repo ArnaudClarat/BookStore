@@ -12,6 +12,20 @@ def view_command():
     for row in be.view():
         list1.insert(END,row)
 
+def search_command():
+    list1.delete(0,END)
+    for row in be.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+        list1.insert(END,row)
+
+def add_command():
+    pass
+
+def update_command():
+    pass
+
+def delete_command():
+    pass
+
 # creating the GUI
 window = Tk()
 
@@ -27,19 +41,19 @@ l3.grid(row=1,column=0)
 l4 = Label(window, text="ISBN")
 l4.grid(row=1,column=2)
 
-title_text = ""
+title_text = StringVar()
 e1 = Entry(window, textvariable = title_text)
 e1.grid(row=0,column=1)
 
-author_text = ""
+author_text = StringVar()
 e2 = Entry(window, textvariable = author_text)
 e2.grid(row=0,column=3)
 
-year_text = ""
+year_text = StringVar()
 e3 = Entry(window, textvariable = year_text)
 e3.grid(row=1,column=1)
 
-isbn_text = ""
+isbn_text = StringVar()
 e4 = Entry(window, textvariable = isbn_text)
 e4.grid(row=1,column=3)
 
