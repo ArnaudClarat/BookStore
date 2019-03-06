@@ -50,8 +50,8 @@ def delete_command():
 window = Tk()
 window.wm_title("Bookstore")
 
-ttk.Style().configure("black.TLabel", foreground='green')
-ttk.Style().configure("blue/white.TButton", foreground='blue', bg="white")
+ttk.Style().configure("black.TLabel", foreground='blue')
+ttk.Style().configure("blue/white.TButton", foreground='black')
 
 l1 = ttk.Label(window, text="Title", style="black.TLabel")
 l1.grid(row=0,column=0)
@@ -106,7 +106,7 @@ b4.grid(row=5, column=3)
 b5 = ttk.Button(window, text="Delete", width=12, command = delete_command, style = "blue/white.TButton")
 b5.grid(row=6, column=3)
 
-b6 = Button(window, text="Exit", width=12, command=window.destroy, highlightbackground ="blue")
+b6 = ttk.Button(window, text="Exit", width=12, command=window.destroy, style = "blue/white.TButton")
 b6.grid(row=7, column=3)
 
 
