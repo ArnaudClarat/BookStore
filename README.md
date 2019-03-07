@@ -13,10 +13,10 @@ The user can add a new book in the list, update the informations of a book, dele
 and also looking for one or all the informations.
 
 ## What to do next
--[ ] clean the code
--[ ] error handling
--[ ] delete the global variable (?)
--[ ] bug management
+- [ ] clean the code
+- [ ] error handling
+- [ ] delete the global variable (?)
+- [ ] bug management
 
 ## how to create an executable
 >pip install pyinstaller
