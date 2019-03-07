@@ -6,7 +6,9 @@ It's done with sqlite3 as database and tkinter as gui.
 
 from tkinter import *
 from tkinter import ttk
-import backend as be
+from backend import Database
+
+db = Database("bookstore.db")
 
 def get_selected_row(event):
 	try:
@@ -27,24 +29,24 @@ def get_selected_row(event):
 
 def view_command():
     list1.delete(0,END)
-    for row in be.view():
+    for row in db.view():
         list1.insert(END,row)
 
 def search_command():
     list1.delete(0,END)
-    for row in be.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
+    for row in db.search(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()):
         list1.insert(END,row)
 
 def add_command():
-    be.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    db.insert(title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
     list1.delete(0,END)
     list1.insert(END,(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def update_command():
-    be.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
+    db.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 def delete_command():
-    be.delete(selected_tuple[0])
+    db.delete(selected_tuple[0])
 
 # creating the GUI
 window = Tk()
